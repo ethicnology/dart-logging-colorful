@@ -24,10 +24,12 @@ class LoggerColorful {
 
   /// Provide a [Logger] attribute because we can't extend the Logger class
   /// as it only has factory constructor and a generative constructor is needed
-  Logger logger;
+  late Logger logger;
 
-  /// Generative constructor
-  LoggerColorful(this.logger);
+  /// Constructor
+  LoggerColorful(String name) {
+    logger = Logger(name);
+  }
 
   /// Log message at level [Level.SHOUT].
   void shout(Object? message, [Object? error, StackTrace? stackTrace]) {

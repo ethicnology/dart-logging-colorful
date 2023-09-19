@@ -7,23 +7,19 @@ void main() {
     print('${record.loggerName} - ${record.level.name}: ${record.message}');
   });
 
-  // Initialize a Logger
-  var log = Logger('MyLogger');
-  log.info('parent logger is not colorized');
-
 // Initialize a LoggerColorful that will make your logger colorized
-  final colorLog = LoggerColorful(log);
-  colorLog.shout('shout');
-  colorLog.severe('severe');
-  colorLog.warning('warning');
-  colorLog.info('info');
-  colorLog.config('config');
-  colorLog.fine('fine');
-  colorLog.finer('finer');
-  colorLog.finest('finest');
+  final log = LoggerColorful('MyLogger');
+  log.shout('shout');
+  log.severe('severe');
+  log.warning('warning');
+  log.info('info');
+  log.config('config');
+  log.fine('fine');
+  log.finer('finer');
+  log.finest('finest');
 
   // Change the Color for a Level
   // (In this case we assign an AnsiColor to [Level.FINEST] which has no AnsiColor to remove the rainbow)
-  colorLog.colorLevel[Level.FINEST] = AnsiColor.backgroundGreen;
-  colorLog.finest('finest with color instead of rainbow');
+  log.colorLevel[Level.FINEST] = AnsiColor.backgroundGreen;
+  log.finest('finest with color instead of rainbow');
 }
