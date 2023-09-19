@@ -1,16 +1,9 @@
-import 'package:logging_colorful/logging_colorful.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('A group of tests', () {
-    final awesome = Awesome();
-
-    setUp(() {
-      // Additional setup goes here.
-    });
-
-    test('First Test', () {
-      expect(awesome.isAwesome, isTrue);
+    test('Do I have a test ?', () {
+      expect(true, isTrue);
     });
   });
 }
