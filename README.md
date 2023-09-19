@@ -47,7 +47,10 @@ void main() {
   colorLog.finest('finest with color instead of rainbow');
 }
 ```
+## Screenshots
+![1.0.0](https://github.com/ethicnology/dart-logging-colorful/blob/main/screenshot.png)
 
 ## Additional information
 
 All the available colors are listed in `lib/src/color.dart` file. 
+
