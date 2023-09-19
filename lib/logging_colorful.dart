@@ -3,6 +3,6 @@
 /// More dartdocs go here.
 library;
 
-export 'src/logging_colorful_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'package:logging/logging.dart';
+export 'src/color.dart';
+export 'src/logging.dart';
