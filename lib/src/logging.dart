@@ -35,7 +35,7 @@ class LoggerColorful {
   void shout(Object? message, [Object? error, StackTrace? stackTrace]) {
     var level = Level.SHOUT;
     var color = colorLevel[level]!;
-    if (message is String) message = _colorize(message, color);
+    message = _colorize(message.toString(), color);
     log(level, message, error, stackTrace);
   }
 
@@ -43,7 +43,7 @@ class LoggerColorful {
   void severe(Object? message, [Object? error, StackTrace? stackTrace]) {
     var level = Level.SEVERE;
     var color = colorLevel[level]!;
-    if (message is String) message = _colorize(message, color);
+    message = _colorize(message.toString(), color);
     log(level, message, error, stackTrace);
   }
 
@@ -51,7 +51,7 @@ class LoggerColorful {
   void warning(Object? message, [Object? error, StackTrace? stackTrace]) {
     var level = Level.WARNING;
     var color = colorLevel[level]!;
-    if (message is String) message = _colorize(message, color);
+    message = _colorize(message.toString(), color);
     log(level, message, error, stackTrace);
   }
 
@@ -59,7 +59,7 @@ class LoggerColorful {
   void info(Object? message, [Object? error, StackTrace? stackTrace]) {
     var level = Level.INFO;
     var color = colorLevel[level]!;
-    if (message is String) message = _colorize(message, color);
+    message = _colorize(message.toString(), color);
     log(level, message, error, stackTrace);
   }
 
@@ -67,7 +67,7 @@ class LoggerColorful {
   void config(Object? message, [Object? error, StackTrace? stackTrace]) {
     var level = Level.CONFIG;
     var color = colorLevel[level]!;
-    if (message is String) message = _colorize(message, color);
+    message = _colorize(message.toString(), color);
     log(level, message, error, stackTrace);
   }
 
@@ -75,7 +75,7 @@ class LoggerColorful {
   void fine(Object? message, [Object? error, StackTrace? stackTrace]) {
     var level = Level.FINE;
     var color = colorLevel[level]!;
-    if (message is String) message = _colorize(message, color);
+    message = _colorize(message.toString(), color);
     log(level, message, error, stackTrace);
   }
 
@@ -83,7 +83,7 @@ class LoggerColorful {
   void finer(Object? message, [Object? error, StackTrace? stackTrace]) {
     var level = Level.FINER;
     var color = colorLevel[level]!;
-    if (message is String) message = _colorize(message, color);
+    message = _colorize(message.toString(), color);
     log(level, message, error, stackTrace);
   }
 
@@ -94,10 +94,10 @@ class LoggerColorful {
   /// Assign a color to [Level.FINEST] in [LoggerColorful.colorLevel] to remove the rainbow.
   void finest(Object? message, [Object? error, StackTrace? stackTrace]) {
     var level = Level.FINEST;
-    if (colorLevel.containsKey(Level.FINEST) && message is String) {
-      message = _colorize(message, colorLevel[level]!);
+    if (colorLevel.containsKey(Level.FINEST)) {
+      message = _colorize(message.toString(), colorLevel[level]!);
     } else if (message is String) {
-      message = _rainbow(message);
+      message = _rainbow(message.toString());
     }
     log(level, message, error, stackTrace);
   }
