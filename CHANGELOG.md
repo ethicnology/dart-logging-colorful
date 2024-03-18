@@ -20,3 +20,9 @@
 
 - Update dev dependencies 
 - Colorization can be disabled with `disabledColors`, this can be usefull on iOS that does not support ANSI colors (they are escaped)
+
+## 1.2.1
+
+- `disabledColors` in constructor
+- FINEST is not a rainbow anymore
+- rainbow is available in `AnsiColors`
