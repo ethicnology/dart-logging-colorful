@@ -23,6 +23,8 @@ log.disabledColors = Platform.isIOS;
 ## Usage
 
 ```dart
+import 'dart:io';
+
 import 'package:logging_colorful/logging_colorful.dart';
 
 void main() {
@@ -32,8 +34,10 @@ void main() {
     print('${record.loggerName} - ${record.level.name}: ${record.message}');
   });
 
-// Initialize a LoggerColorful that will make your logger colorized
-  final log = LoggerColorful('MyLogger');
+  // Initialize a LoggerColorful that will make your logger colorized
+  // You can disable colors
+  // May be useful for iOS users, since iOS doesn't render ANSI Colors (escaped)
+  final log = LoggerColorful('MyLogger', disabledColors: Platform.isIOS);
   log.shout('shout');
   log.severe('severe');
   log.warning('warning');
@@ -44,14 +48,8 @@ void main() {
   log.finest('finest');
 
   // Change the Color for a Level
-  // (In this case we assign an AnsiColor to [Level.FINEST] which has no AnsiColor to remove the rainbow)
-  log.colorLevel[Level.FINEST] = AnsiColor.backgroundGreen;
-  log.finest('finest with color instead of rainbow');
-
-  // You can disable colors
-  // May be useful for iOS users, since iOS doesn't render ANSI Colors (escaped)
-  log.disabledColors = true;
-  log.finest('colors are disabled');
+  log.colorLevel[Level.FINEST] = AnsiColor.rainbow;
+  log.finest('finest with rainbow of color');
 }
 ```
 ## Screenshots
