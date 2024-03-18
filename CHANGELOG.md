@@ -15,3 +15,8 @@
 ## 1.1.1
 
 - Logger message are converted `toString` by default to avoid non colored output for other types
+
+## 1.2.0
+
+- Update dev dependencies 
+- Colorization can be disabled with `disabledColors`, this can be usefull on iOS that does not support ANSI colors (they are escaped)
