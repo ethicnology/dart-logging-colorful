@@ -5,6 +5,13 @@ import 'package:logging_colorful/src/color.dart';
 
 /// This class provide colorful feature to your logging
 class LoggerColorful {
+  /// Disable colors
+  ///
+  /// iOS does not output ANSI colors (they're escaped)
+  /// You should avoid colorization to not spoil your logging on this platform
+  /// https://github.com/flutter/flutter/issues/64491
+  bool disabledColors = false;
+
   /// Define the Colors associated for each level
   /// You can override according to your preferences
   ///
@@ -114,6 +121,7 @@ class LoggerColorful {
 
   /// Return a [String] colored according the [AnsiColor]
   String _colorize(String message, AnsiColor color) {
+    if (disabledColors) return message;
     return '$color$message${AnsiColor.reset}';
   }
 
