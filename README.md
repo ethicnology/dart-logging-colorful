@@ -14,6 +14,12 @@ If you don't want to import this package, you can take the two files in `lib/src
 - Colorful logging
 - Change color for each Level
 
+## Limitations
+- [iOS do not display ANSI colors (escaped)](https://github.com/flutter/flutter/issues/64491)
+```dart
+log.disabledColors = Platform.isIOS;
+```
+
 ## Usage
 
 ```dart
@@ -41,6 +47,11 @@ void main() {
   // (In this case we assign an AnsiColor to [Level.FINEST] which has no AnsiColor to remove the rainbow)
   log.colorLevel[Level.FINEST] = AnsiColor.backgroundGreen;
   log.finest('finest with color instead of rainbow');
+
+  // You can disable colors
+  // May be useful for iOS users, since iOS doesn't render ANSI Colors (escaped)
+  log.disabledColors = true;
+  log.finest('colors are disabled');
 }
 ```
 ## Screenshots

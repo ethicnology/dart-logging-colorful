@@ -22,4 +22,9 @@ void main() {
   // (In this case we assign an AnsiColor to [Level.FINEST] which has no AnsiColor to remove the rainbow)
   log.colorLevel[Level.FINEST] = AnsiColor.backgroundGreen;
   log.finest('finest with color instead of rainbow');
+
+  // You can disable colors
+  // May be useful for iOS users, since iOS doesn't render ANSI Colors (escaped)
+  log.disabledColors = true;
+  log.finest('colors are disabled');
 }
