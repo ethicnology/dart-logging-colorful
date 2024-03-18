@@ -10,13 +10,11 @@ class LoggerColorful {
   /// iOS does not output ANSI colors (they're escaped)
   /// You should avoid colorization to not spoil your logging on this platform
   /// https://github.com/flutter/flutter/issues/64491
-  bool disabledColors = false;
+  bool disabledColors;
 
   /// Define the Colors associated for each level
   /// You can override according to your preferences
   ///
-  /// By default [FINEST] has no color assigned,
-  /// it means that it will be displayed using rainbow colors.
   /// Assign a color to [Level.FINEST] in [LoggerColorful.colorLevel] to remove the rainbow
   Map<Level, AnsiColor> colorLevel = {
     Level.SHOUT: AnsiColor.highIntensityBackgroundRed,
@@ -26,7 +24,7 @@ class LoggerColorful {
     Level.CONFIG: AnsiColor.purple,
     Level.FINE: AnsiColor.green,
     Level.FINER: AnsiColor.boldGreen,
-    // Level.FINEST: AnsiColor.highIntensityBackgroundGreen,
+    Level.FINEST: AnsiColor.highIntensityBackgroundGreen,
   };
 
   /// Provide a [Logger] attribute because we can't extend the Logger class
@@ -34,7 +32,7 @@ class LoggerColorful {
   late Logger logger;
 
   /// Constructor
-  LoggerColorful(String name) {
+  LoggerColorful(String name, {this.disabledColors = false}) {
     logger = Logger(name);
   }
 
@@ -95,17 +93,10 @@ class LoggerColorful {
   }
 
   /// Log message at level [Level.FINEST].
-  ///
-  /// By default [Level.FINEST] has no color assigned,
-  /// it means that it will be displayed using rainbow colors.
-  /// Assign a color to [Level.FINEST] in [LoggerColorful.colorLevel] to remove the rainbow.
   void finest(Object? message, [Object? error, StackTrace? stackTrace]) {
     var level = Level.FINEST;
-    if (colorLevel.containsKey(Level.FINEST)) {
-      message = _colorize(message.toString(), colorLevel[level]!);
-    } else if (message is String) {
-      message = _rainbow(message.toString());
-    }
+    var color = colorLevel[level]!;
+    message = _colorize(message.toString(), color);
     log(level, message, error, stackTrace);
   }
 
@@ -121,6 +112,7 @@ class LoggerColorful {
 
   /// Return a [String] colored according the [AnsiColor]
   String _colorize(String message, AnsiColor color) {
+    if (color.name == 'rainbow') return _rainbow(message);
     if (disabledColors) return message;
     return '$color$message${AnsiColor.reset}';
   }

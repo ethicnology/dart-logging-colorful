@@ -1,5 +1,7 @@
 /// List ANSI colors codes available
 enum AnsiColor {
+  rainbow('rainbow'),
+
   // Regular AnsiColors
   black('\x1B[0;30m'),
   red('\x1B[0;31m'),
