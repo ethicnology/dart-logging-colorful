@@ -26,3 +26,7 @@
 - `disabledColors` in constructor
 - FINEST is not a rainbow anymore
 - rainbow is available in `AnsiColors`
+
+## 1.2.2
+
+- upgrade dependencies
