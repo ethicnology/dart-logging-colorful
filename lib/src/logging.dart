@@ -36,6 +36,20 @@ class LoggerColorful {
     logger = Logger(name);
   }
 
+  /// Removes ANSI color codes and normalizes whitespace from content
+  ///
+  /// This method strips out ANSI escape sequences used for terminal colors
+  /// and replaces tabs and newlines with spaces to create clean, single-line output.
+  ///
+  /// Returns the sanitized content as a single-line string without color codes.
+  String sanitize(String content) {
+    final colors = RegExp(r'\x1B\[[0-9;]*[a-zA-Z]'); // ascii colors
+    final tabNewLine = RegExp(r'[\t\n]'); // no tabs or newlines
+    final sanitizedContent =
+        content.replaceAll(tabNewLine, ' ').replaceAll(colors, '');
+    return sanitizedContent;
+  }
+
   /// Log message at level [Level.SHOUT].
   void shout(Object? message, [Object? error, StackTrace? stackTrace]) {
     var level = Level.SHOUT;
