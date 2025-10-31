@@ -44,7 +44,7 @@ class LoggerColorful {
   /// Returns the sanitized content as a single-line string without color codes.
   String sanitize(String content) {
     final colors = RegExp(r'\x1B\[[0-9;]*[a-zA-Z]'); // ascii colors
-    final tabNewLine = RegExp(r'[\t\n]'); // no tabs or newlines
+    final tabNewLine = RegExp(r'[\t\n\r]'); // no tabs or newlines
     final sanitizedContent =
         content.replaceAll(tabNewLine, ' ').replaceAll(colors, '');
     return sanitizedContent;
