@@ -1,25 +1,16 @@
-## 1.0.0
+## 1.3.1
 
-- Initial version.
-- AnsiColor enum
-- LoggerColorful
+- `sanitize` `\r` as well
+- set fvm version
 
-## 1.0.1
+## 1.3.0
 
-- Screenshot in Readme
+- `sanitize` method to remove ANSI color codes and normalize whitespace
+- `LogRecordExtension` with `stringifyErrorAndTrace` method
 
-## 1.1.0
+## 1.2.2
 
-- Logger attribute is lately initialized with the String
-
-## 1.1.1
-
-- Logger message are converted `toString` by default to avoid non colored output for other types
-
-## 1.2.0
-
-- Update dev dependencies 
-- Colorization can be disabled with `disabledColors`, this can be usefull on iOS that does not support ANSI colors (they are escaped)
+- upgrade dependencies
 
 ## 1.2.1
 
@@ -27,6 +18,25 @@
 - FINEST is not a rainbow anymore
 - rainbow is available in `AnsiColors`
 
-## 1.2.2
+## 1.2.0
 
-- upgrade dependencies
+- Update dev dependencies 
+- Colorization can be disabled with `disabledColors`, this can be usefull on iOS that does not support ANSI colors (they are escaped)
+
+## 1.1.1
+
+- Logger message are converted `toString` by default to avoid non colored output for other types
+
+## 1.1.0
+
+- Logger attribute is lately initialized with the String
+
+## 1.0.1
+
+- Screenshot in Readme
+
+## 1.0.0
+
+- Initial version.
+- AnsiColor enum
+- LoggerColorful
