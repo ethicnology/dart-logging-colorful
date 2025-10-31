@@ -1,3 +1,7 @@
+## 1.3.2
+
+- add missing export
+
 ## 1.3.1
 
 - `sanitize` `\r` as well

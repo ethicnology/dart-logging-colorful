@@ -1,6 +1,6 @@
 name: logging_colorful
 description: Logging package with colors, no external dependencies. 
-version: 1.3.1
+version: 1.3.2
 repository: https://github.com/ethicnology/dart-logging-colorful
 
 environment:
